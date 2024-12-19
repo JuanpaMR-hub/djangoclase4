@@ -1,0 +1,40 @@
+{% extends 'tareas/base.html' %}
+
+{% block title %}Tareas Home {% endblock title %}
+
+{% block content %}
+
+<h1>Tareas</h1>
+
+{% if user.is_authenticated %}
+    <a href="{% url 'usuarios:logout' %}">LOGOUT</a>
+{% else %}    
+    <a href="{% url 'usuarios:login' %}">LOGIN</a>
+{% endif %}
+
+
+<form action="" method = 'POST'>
+    {% csrf_token %}
+    {{form.titulo}}
+    <button name="save">Guardar Tarea</button>
+</form>
+
+<div class="tareas">
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <ul>
+            {% for tarea in tareas %}
+            <li>
+                <a href="{% url 'tareas:detail-tarea' tarea.pk %}">{{tarea.titulo}}</a>
+                <button name="delete" value={{tarea.pk}}>Delete</button>
+                <button name="edit" value={{tarea.pk}}>Edit</button>
+    
+    
+            </li>
+            {% endfor %}
+        </ul>
+    </form>
+</div>
+
+{% endblock content %}

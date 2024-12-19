@@ -1,0 +1,15 @@
+{% extends 'tareas/base.html' %}
+
+
+
+{% block title %}LOGIN{% endblock title %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" id="username" placeholder="Username">
+    <input type="password" name="password" id="password" placeholder="Password">
+    <button>Submit</button>
+
+</form>
+{% endblock content %}

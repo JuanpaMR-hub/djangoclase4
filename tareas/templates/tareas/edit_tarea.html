@@ -1,0 +1,17 @@
+{% extends 'tareas/base.html' %}
+
+{% block title %}Tareas Edit {% endblock title %}
+
+{% block content %}
+
+<h1>Editar tarea</h1>
+
+<div class="tareas_edit">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{form}}
+        <button>Actualizar</button>
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,15 @@
+{% extends 'tareas/base.html' %}
+
+{% block title %}Tareas Home {% endblock title %}
+
+{% block content %}
+
+<h1>Detalles de Tarea</h1>
+
+<div class="tareas">
+    {{tarea}}
+    {{tarea.descripcion}}
+    {{tarea.completado}}
+</div>
+
+{% endblock content %}
